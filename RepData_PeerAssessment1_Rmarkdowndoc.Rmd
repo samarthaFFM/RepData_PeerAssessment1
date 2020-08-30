@@ -1,0 +1,83 @@
+---
+title: "RepData_peerassignment_project"
+author: "STS"
+date: "29/08/2020"
+output: html_document
+---
+
+#Peer assignment Course project 1 
+=================================
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(ggplot2)
+library(dplyr)
+
+```
+
+
+## Loading and preprocessing the data
+
+the data has the said number of rows (nad columns) - 
+
+```{r input file}
+##Loading the data (i.e. read.csv())
+##Process/transform the data (if necessary) into a format suitable for your analysis
+
+input.file = '/Users/samarthts/Documents/Coursera/DS_reproducibility /'
+inp = read.csv(paste0(input.file,'activity.csv' ), header = T,as.is = T)
+
+#check dimensions to confirm number of rows
+dim(inp)
+```
+
+## Questions
+============
+
+## Q1. What is mean total number of steps taken per day?
+
+
+```{r}
+#For this part of the assignment, you can ignore the missing values in the dataset.
+#inp1 = inp[!is.na(inp$steps),]
+
+total_dailysteps=aggregate(x = inp$steps,by = list(inp$date), FUN = sum)
+
+
+```
+
+### The total number of steps taken per day is `r total_dailysteps` 
+
+
+```{r}
+#Make a histogram of the total number of steps taken each day
+hist(total_dailysteps$x)
+```
+
+
+#### The mean and median of the total number of steps taken per day
+
+
+```{r}
+#For this part of the assignment, you can ignore the missing values in the dataset.
+#inp1 = inp[!is.na(inp$steps),]
+
+mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
+
+
+```
+
+### The mean number of steps taken per day is `r mean_daily_steps` 
+
+
+```{r}
+#For this part of the assignment, you can ignore the missing values in the dataset.
+#inp1 = inp[!is.na(inp$steps),]
+
+median_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
+
+
+```
+
+### The median number of steps taken per day is `r median_daily_steps` 
+
