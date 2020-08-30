@@ -62,8 +62,9 @@ hist(total_dailysteps$x)
 #For this part of the assignment, you can ignore the missing values in the dataset.
 #inp1 = inp[!is.na(inp$steps),]
 
-mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
+#mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
 
+mean_daily_steps=mean(total_dailysteps$x)
 
 ```
 
@@ -74,8 +75,8 @@ mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
 #For this part of the assignment, you can ignore the missing values in the dataset.
 #inp1 = inp[!is.na(inp$steps),]
 
-median_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
-
+#median_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
+median_daily_steps=median(total_dailysteps$x)
 
 ```
 
