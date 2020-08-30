@@ -64,7 +64,7 @@ hist(total_dailysteps$x)
 
 #mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
 
-mean_daily_steps=mean(total_dailysteps$x)
+mean_daily_steps=mean(total_dailysteps$x,na.rm = T)
 
 ```
 
@@ -76,9 +76,30 @@ mean_daily_steps=mean(total_dailysteps$x)
 #inp1 = inp[!is.na(inp$steps),]
 
 #median_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
-median_daily_steps=median(total_dailysteps$x)
+median_daily_steps=median(total_dailysteps$x, na.rm = T)
 
 ```
 
 ### The median number of steps taken per day is `r median_daily_steps` 
+
+
+## Q2. What is the average daily activity pattern?
+
+```{r time series plot}
+#Make a time series plot (type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
+p <- ggplot(inp, aes(x=day, y=value)) +
+  geom_line() + 
+  xlab("")
+p
+
+```
+
+Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
+
+```{r}
+p <- ggplot(data, aes(x=day, y=value)) +
+  geom_line() + 
+  xlab("")
+p
+```
 
