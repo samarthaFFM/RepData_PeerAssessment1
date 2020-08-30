@@ -18,13 +18,13 @@ library(dplyr)
 
 ## Loading and preprocessing the data
 
-the data has the said number of rows (nad columns) - 
+the data has the said number of rows (and columns) - 
 
 ```{r input file}
 ##Loading the data (i.e. read.csv())
 ##Process/transform the data (if necessary) into a format suitable for your analysis
 
-input.file = '/Users/samarthts/Documents/Coursera/DS_reproducibility /'
+input.file = '/Users/samarthts/Documents/scripts_R/R_git/Repro_res/RepData_assignment_STS/RepData_PeerAssessment1/'
 inp = read.csv(paste0(input.file,'activity.csv' ), header = T,as.is = T)
 
 #check dimensions to confirm number of rows

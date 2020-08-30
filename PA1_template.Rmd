@@ -5,13 +5,51 @@ output:
     keep_md: true
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r libraries}
+#libraries
+
+library(ggplot2)
+library(dplyr)
+```
+
 
 ## Loading and preprocessing the data
 
 
+Check: the data has the said number of rows (and columns) - 
+
+```{r input file}
+##Loading the data (i.e. read.csv())
+##Process/transform the data (if necessary) into a format suitable for your analysis
+
+#input path
+input.file = '/Users/samarthts/Documents/scripts_R/R_git/Repro_res/RepData_assignment_STS/RepData_PeerAssessment1/'
+
+#input file and path 
+inp = read.csv(paste0(input.file,'activity.csv' ), header = T,as.is = T)
+
+#check dimensions to confirm number of rows
+dim(inp)
+
+```
+
 
 ## What is mean total number of steps taken per day?
 
+
+```{r}
+#For this part of the assignment, you can ignore the missing values in the dataset.
+#inp1 = inp[!is.na(inp$steps),]
+
+#Using aggregate function to find the total steps per day
+total_dailysteps=aggregate(x = inp$steps,by = list(inp$date), FUN = sum)
+
+```
 
 
 ## What is the average daily activity pattern?
