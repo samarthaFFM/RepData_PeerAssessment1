@@ -109,3 +109,63 @@ mean_daily_steps_2$Group.1[which(mean_daily_steps_2$x == max(mean_daily_steps_2$
 # p
 ```
 
+## Imputing missing values
+
+The number of missing value rows are - 
+
+```{r missing values}
+#Note that there are a number of days/intervals where there are missing values (coded as NA). The presence of missing days may introduce bias into some calculations or summaries of the data. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with NAs). 
+
+sum(is.na(inp$steps))
+
+```
+
+
+
+```{r}
+#Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc. Create a new dataset that is equal to the original dataset but with the missing data filled in.
+
+#STRATEGY - median step count across all days for that particular missing 5 minute interval 
+
+median_daily_steps_2=aggregate(x = inp1$steps,by = list(inp1$interval), FUN = median)
+
+inp_missing=inp[is.na(inp$steps),]
+
+#change names to merge
+names(median_daily_steps_2) = c('interval','steps')
+
+#merge 
+inp_miss_imputed=merge(inp_missing, median_daily_steps_2,by = 'interval' ,all.x = T)
+
+new_inp_imputed=inp_miss_imputed[c(4,3,1)]
+
+names(new_inp_imputed) = names(inp)
+
+# rbind both dataframes
+
+new_inp=rbind(new_inp_imputed, inp1)
+
+#sanity check
+
+#sum(is.na(new_inp))
+
+```
+```{r}
+
+#Make a histogram of the total number of steps taken each day and Calculate and report the mean and median total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?
+
+```
+
+
+
+```{r}
+
+#Are there differences in activity patterns between weekdays and weekends?
+#For this part the weekdays() function may be of some help here. Use the dataset with the filled-in missing values for this part.
+
+#Create a new factor variable in the dataset with two levels -- "weekday" and "weekend" indicating whether a given date is a weekday or weekend day.
+
+#Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). The plot should look something like the following, which was created using simulated data:
+
+```
+
