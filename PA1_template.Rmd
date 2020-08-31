@@ -234,7 +234,9 @@ new_inp$weekday_or_end[new_inp$week_factor == 'Sunday'|
 
 ```
 
-### Panel plot for weekdays and weekends 
+### Panel plot of total daily steps taken
+
+The panel plots are divided into weekdays and weekends 
 
 ```{r panels}
 

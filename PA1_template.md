@@ -259,15 +259,16 @@ new_inp$weekday_or_end[new_inp$week_factor == 'Sunday'|
 #new_inp$weekday_or_end =  as.factor(new_inp$weekday_or_end)
 ```
 
-### Panel plot for weekdays and weekends 
+### Panel plot of total daily steps taken
+
+The panel plots are divided into weekdays and weekends 
 
 
 ```r
 #Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). The plot should look something like the following, which was created using simulated data:
 
 mean_daily_steps_3=aggregate(x =new_inp$steps,by = list(new_inp$interval,
-                                                        new_inp$weekday_or_end),
-                             FUN = mean)
+                                                        new_inp$weekday_or_end),FUN = mean)
 
 ##ggplot panel plot
 p1 <- ggplot(mean_daily_steps_3, aes(x=Group.1, y=x,)) +
