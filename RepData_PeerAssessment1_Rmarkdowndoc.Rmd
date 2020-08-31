@@ -43,14 +43,10 @@ Questions
 
 total_dailysteps=aggregate(x = inp$steps,by = list(inp$date), FUN = sum)
 
-TD_mean = mean(total_dailysteps$x, na.rm=T)
 
-#two decimal points only
-TD_mean = format(round(TD_mean, 2), nsmall = 2)
 
 ```
 
-### The total number of steps taken per day are `r TD_mean`
 
 
 ```{r}
@@ -69,11 +65,14 @@ hist(total_dailysteps$x,main = 'Histogram of Total number of daily steps',
 
 #mean_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
 
-mean_daily_steps=mean(total_dailysteps$x,na.rm = T)
+TD_mean = mean(total_dailysteps$x, na.rm=T)
+
+#two decimal points only
+TD_mean = format(round(TD_mean, 2), nsmall = 2)
 
 ```
 
-### The mean number of steps taken per day is `r mean_daily_steps` 
+### The mean number of steps taken per day is `r TD_mean` 
 
 
 ```{r}
@@ -81,11 +80,15 @@ mean_daily_steps=mean(total_dailysteps$x,na.rm = T)
 
 
 #median_daily_steps=aggregate(x = inp$steps,by = list(inp$date), FUN = mean)
-median_daily_steps=median(total_dailysteps$x, na.rm = T)
+TD_median=median(total_dailysteps$x, na.rm = T)
+
+#two decimal points only
+TD_median = format(round(TD_median, 2), nsmall = 2)
+
 
 ```
 
-### The median number of steps taken per day is `r median_daily_steps` 
+### The median number of steps taken per day is `r TD_median` 
 
 
 ## Q2. What is the average daily activity pattern?
