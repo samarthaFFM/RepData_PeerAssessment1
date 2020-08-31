@@ -16,9 +16,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(ggplot2)
 ```
 
-
 ## Loading and preprocessing the data
-
 
 Check: the data has the said number of rows (and columns) - 
 
@@ -36,9 +34,7 @@ inp = read.csv(paste0(input.file,'activity.csv' ), header = T,as.is = T)
 dim(inp)
 ```
 
-
 ## What is mean total number of steps taken per day?
-
 
 ```{r TDS agg}
 #For this part of the assignment, you can ignore the missing values in the dataset.
@@ -49,7 +45,7 @@ total_dailysteps=aggregate(x = inp$steps,by = list(inp$date), FUN = sum)
 
 - The total number of daily steps taken is represented in the following histogram - 
 
-```{r hist TDS}
+```{r hist_TDS}
 #Make a histogram of the total number of steps taken each day
 hist(total_dailysteps$x,main = 'Histogram of Total number of daily steps', 
      xlab = 'Total steps taken per day')
@@ -84,7 +80,7 @@ TD_median = format(round(TD_median, 2), nsmall = 2)
 
 - The average daily activity pattern is seen by the time series line plot below -
 
-```{r time series plot}
+```{r time_series_plot}
 #Make a time series plot (type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 #remove NAs

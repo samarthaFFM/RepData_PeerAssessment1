@@ -14,9 +14,7 @@ output:
 library(ggplot2)
 ```
 
-
 ## Loading and preprocessing the data
-
 
 Check: the data has the said number of rows (and columns) - 
 
@@ -39,9 +37,7 @@ dim(inp)
 ## [1] 17568     3
 ```
 
-
 ## What is mean total number of steps taken per day?
-
 
 
 ```r
@@ -60,7 +56,7 @@ hist(total_dailysteps$x,main = 'Histogram of Total number of daily steps',
      xlab = 'Total steps taken per day')
 ```
 
-![](PA1_template_files/figure-html/hist TDS-1.png)<!-- -->
+![](PA1_template_files/figure-html/hist_TDS-1.png)<!-- -->
 
 
 
@@ -109,7 +105,7 @@ p <- ggplot(mean_daily_steps_2, aes(x=Group.1, y=x)) +
 p
 ```
 
-![](PA1_template_files/figure-html/time series plot-1.png)<!-- -->
+![](PA1_template_files/figure-html/time_series_plot-1.png)<!-- -->
 
 Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
