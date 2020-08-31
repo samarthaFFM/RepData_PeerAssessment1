@@ -207,7 +207,7 @@ hist(total_dailysteps_imputed$x, main = 'Histogram of the Total number of daily
      xlab = 'Total steps taken per day')
 ```
 
-![](PA1_template_files/figure-html/new hist-1.png)<!-- -->
+![](PA1_template_files/figure-html/new_hist-1.png)<!-- -->
 
 Imputed dataset measures of central tendency - 
 

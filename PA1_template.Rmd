@@ -173,7 +173,7 @@ values differ from the estimates from the first part of the assignment? What is
 the impact of imputing missing data on the estimates of the total daily number 
 of steps?
 
-```{r new hist}
+```{r new_hist}
 #Make a histogram of the total number of steps taken each day 
 
 total_dailysteps_imputed=aggregate(x = new_inp$steps,by = list(new_inp$date), 
