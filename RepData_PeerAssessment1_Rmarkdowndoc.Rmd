@@ -43,15 +43,20 @@ Questions
 
 total_dailysteps=aggregate(x = inp$steps,by = list(inp$date), FUN = sum)
 
+TD_mean = mean(total_dailysteps$x, na.rm=T)
+
+#two decimal points only
+TD_mean = format(round(TD_mean, 2), nsmall = 2)
 
 ```
 
-### The total number of steps taken per day is `r mean(total_dailysteps$x, na.rm=T)` 
+### The total number of steps taken per day are `r TD_mean`
 
 
 ```{r}
 #Make a histogram of the total number of steps taken each day
-hist(total_dailysteps$x)
+hist(total_dailysteps$x,main = 'Histogram of Total number of daily steps', 
+     xlab = 'Total steps taken per day')
 ```
 
 
